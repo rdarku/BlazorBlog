@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,7 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateComments.cs" />
+    <Compile Include="CreateLike.cs" />
+    <Compile Include="CreatePostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CreateReply.cs" />
+    <Compile Include="CreateUser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorBlog.Data\BlazorBlog.Data.csproj">
+      <Project>{7FA339D9-4A3A-4308-A502-90097C7C856C}</Project>
+      <Name>BlazorBlog.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
