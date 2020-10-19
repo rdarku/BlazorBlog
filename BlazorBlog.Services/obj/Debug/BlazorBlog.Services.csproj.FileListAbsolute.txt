@@ -1,0 +1,6 @@
+C:\Users\rdark\source\repos\BlazorBlog\BlazorBlog.Services\bin\Debug\BlazorBlog.Services.dll
+C:\Users\rdark\source\repos\BlazorBlog\BlazorBlog.Services\bin\Debug\BlazorBlog.Services.pdb
+C:\Users\rdark\source\repos\BlazorBlog\BlazorBlog.Services\obj\Debug\BlazorBlog.Services.csprojAssemblyReference.cache
+C:\Users\rdark\source\repos\BlazorBlog\BlazorBlog.Services\obj\Debug\BlazorBlog.Services.csproj.CoreCompileInputs.cache
+C:\Users\rdark\source\repos\BlazorBlog\BlazorBlog.Services\obj\Debug\BlazorBlog.Services.dll
+C:\Users\rdark\source\repos\BlazorBlog\BlazorBlog.Services\obj\Debug\BlazorBlog.Services.pdb
