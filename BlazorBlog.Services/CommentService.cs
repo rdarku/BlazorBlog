@@ -20,7 +20,7 @@ namespace BlazorBlog.Services
             var commentEntity = new Comment
             {
                 Text = model.Text,
-                PostId = model.PostId, 
+                PostId = model.CommentId, 
                 ApplicationUserId = _userId.ToString(),
                 CreatedUtc = DateTimeOffset.Now
             };
