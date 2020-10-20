@@ -8,18 +8,23 @@ namespace BlazorBlog.Data
     {
         [Key]
         public int Id { get; set; }
+
+        [Required]
         public string Text { get; set; }
 
+        [Required]
         public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset? ModifiedUtc { get; set; }
 
-        [ForeignKey(nameof(User))]
-        public Guid UserId { get; set; }
-        public virtual User Author { get; set; }
+        public string ApplicationUserId { get; set; }
 
-        [ForeignKey(nameof(Post))]
+        [ForeignKey(nameof(ApplicationUserId))]
+        public virtual ApplicationUser Author { get; set; }
+
         public int PostId { get; set; }
+
+        [ForeignKey(nameof(PostId))]
         public virtual Post CommentPost { get; set; }
     }
 }

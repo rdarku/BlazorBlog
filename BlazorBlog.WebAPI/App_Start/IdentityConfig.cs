@@ -1,10 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using BlazorBlog.Data;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using BlazorBlog.WebAPI.Models;
-using BlazorBlog.Data;
 
 namespace BlazorBlog.WebAPI
 {
