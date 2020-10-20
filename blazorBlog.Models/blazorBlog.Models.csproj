@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -43,10 +44,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comments\CommentCreate.cs" />
+    <Compile Include="Comments\CommentDetail.cs" />
+    <Compile Include="Comments\CommentEdit.cs" />
+    <Compile Include="Comments\CommentListItem.cs" />
     <Compile Include="CreateComments.cs" />
     <Compile Include="CreateLike.cs" />
     <Compile Include="CreatePostModel.cs" />
     <Compile Include="Likes\LikeCreate.cs" />
+    <Compile Include="Likes\LikeEdit.cs" />
+    <Compile Include="Likes\LikeListItem.cs" />
     <Compile Include="Posts\PostCreate.cs" />
     <Compile Include="Posts\PostDetail.cs" />
     <Compile Include="Posts\PostEdit.cs" />
