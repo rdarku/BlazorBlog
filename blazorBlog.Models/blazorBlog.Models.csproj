@@ -42,16 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comments\CommentCreate.cs" />
     <Compile Include="CreateComments.cs" />
     <Compile Include="CreateLike.cs" />
     <Compile Include="CreatePostModel.cs" />
-    <Compile Include="Post\PostCreate.cs" />
-    <Compile Include="Post\PostDetail.cs" />
-    <Compile Include="Post\PostEdit.cs" />
-    <Compile Include="Post\PostListItem.cs" />
+    <Compile Include="Likes\LikeCreate.cs" />
+    <Compile Include="Posts\PostCreate.cs" />
+    <Compile Include="Posts\PostDetail.cs" />
+    <Compile Include="Posts\PostEdit.cs" />
+    <Compile Include="Posts\PostListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CreateReply.cs" />
     <Compile Include="CreateUser.cs" />
+    <Compile Include="Replies\ReplyCreate.cs" />
+    <Compile Include="Users\UserCreate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlazorBlog.Data\BlazorBlog.Data.csproj">
@@ -59,5 +63,6 @@
       <Name>BlazorBlog.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
