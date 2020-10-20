@@ -13,8 +13,9 @@ namespace BlazorBlog.Data
 
         public virtual Post LikedPost { get; set; }
 
-        [ForeignKey(nameof(Liker))]
-        public int LikeId { get; set; }
-        public virtual User Liker { get; set; }
+        public string ApplicationUserId { get; set; }
+
+        [ForeignKey(nameof(ApplicationUserId))]
+        public virtual ApplicationUser Liker { get; set; }
     }
 }

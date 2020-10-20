@@ -22,7 +22,7 @@ namespace BlazorBlog.Services
             {
                 Text = model.Text,
                 Title = model.Title,
-                UserId = _userId,
+                ApplicationUserId = _userId.ToString(),
                 CreatedUtc = DateTimeOffset.Now
             };
 
@@ -38,7 +38,7 @@ namespace BlazorBlog.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var postEntity = ctx.Posts.Single(p => p.Id == model.Id && p.UserId == _userId);
+                var postEntity = ctx.Posts.Single(p => p.Id == model.Id && p.ApplicationUserId == _userId.ToString());
                 if (postEntity == null) return false;
 
                 postEntity.Title = model.Title;
@@ -54,7 +54,7 @@ namespace BlazorBlog.Services
         {
             using(var ctx = new ApplicationDbContext())
             {
-                return ctx.Posts.Where(p => p.UserId == _userId)
+                return ctx.Posts.Where(p => p.ApplicationUserId == _userId.ToString())
                     .Select(p => new PostListItem
                     {
                         Id = p.Id,
@@ -69,7 +69,7 @@ namespace BlazorBlog.Services
         {
             using(var ctx = new ApplicationDbContext())
             {
-                var postEntity = ctx.Posts.Single(p => p.Id == id && p.UserId == _userId);
+                var postEntity = ctx.Posts.Single(p => p.Id == id && p.ApplicationUserId == _userId.ToString());
                 if (postEntity == null) return null;
 
                 return new PostDetail
@@ -88,7 +88,7 @@ namespace BlazorBlog.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var postEntity = ctx.Posts.Single(p => p.Id == id && p.UserId == _userId);
+                var postEntity = ctx.Posts.Single(p => p.Id == id && p.ApplicationUserId == _userId.ToString());
                 if (postEntity == null) return false;
 
                 ctx.Posts.Remove(postEntity);

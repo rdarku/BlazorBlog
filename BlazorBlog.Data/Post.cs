@@ -18,9 +18,9 @@ namespace BlazorBlog.Data
 
         public DateTimeOffset? ModifiedUtc { get; set; }
 
-        [ForeignKey(nameof(Author))]
-        public Guid UserId { get; set; }
+        public string ApplicationUserId { get; set; }
 
-        public virtual User Author { get; set; }
+        [ForeignKey(nameof(ApplicationUserId))]
+        public virtual ApplicationUser Author { get; set; }
     }
 }

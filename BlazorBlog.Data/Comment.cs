@@ -17,12 +17,14 @@ namespace BlazorBlog.Data
 
         public DateTimeOffset? ModifiedUtc { get; set; }
 
-        [ForeignKey(nameof(Author))]
-        public Guid UserId { get; set; }
-        public virtual User Author { get; set; }
+        public string ApplicationUserId { get; set; }
 
-        [ForeignKey(nameof(CommentPost))]
+        [ForeignKey(nameof(ApplicationUserId))]
+        public virtual ApplicationUser Author { get; set; }
+
         public int PostId { get; set; }
+
+        [ForeignKey(nameof(PostId))]
         public virtual Post CommentPost { get; set; }
     }
 }
