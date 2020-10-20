@@ -10,7 +10,7 @@ namespace BlazorBlog.Services
     {
 
         // create Post
-        public bool CreatePost(Post model)
+        public bool CreatePost(PostCreate model)
         {
 
         }

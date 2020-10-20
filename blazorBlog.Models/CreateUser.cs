@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace blazorBlog.Models
+namespace BlazorBlog.Models
 {
     public class CreateUser
     {

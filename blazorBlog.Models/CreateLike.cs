@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BlazorBlog.Data;
 
-namespace blazorBlog.Models
+namespace BlazorBlog.Models
 {
     public class CreateLike
     {
