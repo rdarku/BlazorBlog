@@ -207,6 +207,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -310,6 +311,14 @@
     <ProjectReference Include="..\BlazorBlog.Data\BlazorBlog.Data.csproj">
       <Project>{7FA339D9-4A3A-4308-A502-90097C7C856C}</Project>
       <Name>BlazorBlog.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\blazorBlog.Models\BlazorBlog.Models.csproj">
+      <Project>{4B587AA2-46BC-4FF6-B176-CDE57E3917FC}</Project>
+      <Name>BlazorBlog.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlazorBlog.Services\BlazorBlog.Services.csproj">
+      <Project>{CD01AFAF-A541-48DD-B87A-0240ECC2C197}</Project>
+      <Name>BlazorBlog.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

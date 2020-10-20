@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BlazorBlog.Data
 {
     public class Like
     {
-        public Post LikedPost { get; set; }
-        public User Liker { get; set; }
+        [Key]
+        public int Id { get; set; }
+
+        [ForeignKey(nameof(LikedPost))]
+        public int PostId { get; set; }
+
+        public virtual Post LikedPost { get; set; }
+
+        [ForeignKey(nameof(Liker))]
+        public int LikeId { get; set; }
+        public virtual User Liker { get; set; }
     }
 }

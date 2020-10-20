@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorBlog.Data", "BlazorBlog.Data\BlazorBlog.Data.csproj", "{7FA339D9-4A3A-4308-A502-90097C7C856C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blazorBlog.Models", "blazorBlog.Models\blazorBlog.Models.csproj", "{4B587AA2-46BC-4FF6-B176-CDE57E3917FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorBlog.Models", "blazorBlog.Models\BlazorBlog.Models.csproj", "{4B587AA2-46BC-4FF6-B176-CDE57E3917FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorBlog.Services", "BlazorBlog.Services\BlazorBlog.Services.csproj", "{CD01AFAF-A541-48DD-B87A-0240ECC2C197}"
 EndProject
