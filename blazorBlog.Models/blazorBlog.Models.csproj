@@ -56,6 +56,9 @@
     <Compile Include="Posts\PostListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Replies\ReplyCreate.cs" />
+    <Compile Include="Replies\ReplyDetail.cs" />
+    <Compile Include="Replies\ReplyEdit.cs" />
+    <Compile Include="Replies\ReplyListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlazorBlog.Data\BlazorBlog.Data.csproj">

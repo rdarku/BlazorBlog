@@ -15,19 +15,20 @@ namespace BlazorBlog.Services
             _userId = userId;
         }
 
-        public bool CreateReply(ReplyCreate model)    //
+        public bool CreateReply(ReplyCreate model)
         {
             var replyEntity = new Reply   
             {
                 Text = model.Text,
-                PostId = model.PostId,
+                PostId = model.PostID,
+                CommentId = model.CommentId,
                 ApplicationUserId = _userId.ToString(),
                 CreatedUtc = DateTimeOffset.Now
             };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Replies.Add(commentEntity);
+                ctx.Replies.Add(replyEntity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -36,7 +37,7 @@ namespace BlazorBlog.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var replyEntity = ctx.Comments.Single(p => p.Id == model.Id && p.ApplicationUserId == _userId.ToString());
+                var replyEntity = ctx.Replies.Single(p => p.ReplyId == model.ReplyId && p.ApplicationUserId == _userId.ToString());
                 if (replyEntity == null) return false;
 
                 replyEntity.Text = model.Text;
@@ -50,7 +51,7 @@ namespace BlazorBlog.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var replyEntity = ctx.Comments.Single(p => p.Id == id && p.ApplicationUserId == _userId.ToString());
+                var replyEntity = ctx.Replies.Single(p => p.ReplyId == id && p.ApplicationUserId == _userId.ToString());
                 if (replyEntity == null) return false;
 
                 ctx.Replies.Remove(replyEntity);
@@ -63,12 +64,13 @@ namespace BlazorBlog.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                return ctx.Comments.Where(p => p.ApplicationUserId == _userId.ToString())
+                return ctx.Replies.Where(p => p.ApplicationUserId == _userId.ToString())
                     .Select(p => new ReplyListItem
                     {
-                        Id = p.Id,
+                        ReplyId = p.Id,
                         PostId = p.PostId,
-                        CommentAuthor = p.Author.UserName
+                        CommentId = p.CommentId,
+                        CreatedUtc = p.CreatedUtc
                     }).ToList();
             }
         }
@@ -82,11 +84,13 @@ namespace BlazorBlog.Services
 
                 return new ReplyDetail
                 {
-                    Id = postEntity.Id,
-                    Text = postEntity.Text,
+                    ReplyId = postEntity.ReplyId,
+                    Reply = postEntity.Text,
                     CommentAuthor = postEntity.Author.UserName,
+                    ReplyAuthor = postEntity.Author.UserName,
                     PostId = postEntity.PostId,
-                    PostAuthor = postEntity.CommentPost.Author.UserName
+                    CreatedUtc = postEntity.CreatedUtc,
+                    CommentId = postEntity.CommentId
                 };
             }
         }
