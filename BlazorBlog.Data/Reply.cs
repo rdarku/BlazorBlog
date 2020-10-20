@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BlazorBlog.Data
 {
@@ -6,6 +7,10 @@ namespace BlazorBlog.Data
     {
         [Key]
         public int ReplyId { get; set; }
+
+        public int CommentId { get; set; }
+
+        [ForeignKey(nameof(CommentId))]
         public Comment ReplyComment { get; set; } 
     }
 }
