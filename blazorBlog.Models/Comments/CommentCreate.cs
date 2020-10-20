@@ -10,9 +10,6 @@ namespace BlazorBlog.Models.Comments
         public string Text { get; set; }  //Comment Texts from user
 
         [Required]
-        public int Id { get; set; }      //user ID
-
-        [Required]
         public int PostId { get; set; }
     }
 }

@@ -40,6 +40,7 @@ namespace BlazorBlog.WebAPI.Controllers
             return Ok(service.GetById(id));
         }
 
+        // We probably do not want this here
         public IHttpActionResult Put(LikeEdit comment)
         {
             var service = CreateLikeService();

@@ -20,7 +20,8 @@ namespace BlazorBlog.Services
             var likeEntity = new Like
             {
                 PostId = model.PostId,
-                ApplicationUserId = _userId.ToString()
+                ApplicationUserId = _userId.ToString(),
+                CreatedUtc = DateTimeOffset.Now
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -38,6 +39,7 @@ namespace BlazorBlog.Services
                 if (likeEntity == null) return false;
 
                 likeEntity.PostId = model.PostId;
+                likeEntity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -65,7 +67,8 @@ namespace BlazorBlog.Services
                     {
                         Id = p.Id,
                         PostId = p.PostId,
-                        Liker = p.Liker.UserName
+                        Liker = p.Liker.UserName,
+                        CreatedUTC = p.CreatedUtc
                     }).ToList();
             }
         }
@@ -81,7 +84,8 @@ namespace BlazorBlog.Services
                 {
                     Id = postEntity.Id,
                     PostId = postEntity.PostId,
-                    Liker = postEntity.Liker.UserName
+                    Liker = postEntity.Liker.UserName,
+                    CreatedUTC = postEntity.CreatedUtc
                 };
             }
         }
