@@ -6,6 +6,7 @@ using System.Web.Http;
 
 namespace BlazorBlog.WebAPI.Controllers
 {
+    [Authorize]
     public class LikeController : ApiController
     {
         private LikeService CreateLikeService()
@@ -41,17 +42,17 @@ namespace BlazorBlog.WebAPI.Controllers
         }
 
         // We probably do not want this here
-        public IHttpActionResult Put(LikeEdit comment)
-        {
-            var service = CreateLikeService();
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+        //public IHttpActionResult Put(LikeEdit comment)
+        //{
+        //    var service = CreateLikeService();
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
 
-            if (!service.UpdateLike(comment))
-                return InternalServerError();
+        //    if (!service.UpdateLike(comment))
+        //        return InternalServerError();
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
 
         public IHttpActionResult Delete(int id)
         {

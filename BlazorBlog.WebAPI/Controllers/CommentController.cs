@@ -6,6 +6,7 @@ using System.Web.Http;
 
 namespace BlazorBlog.WebAPI.Controllers
 {
+    [Authorize]
     public class CommentController : ApiController
     {
         private CommentService CreateCommentService()

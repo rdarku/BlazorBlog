@@ -6,6 +6,7 @@ using System.Web.Http;
 
 namespace BlazorBlog.WebAPI.Controllers
 {
+    [Authorize]
     public class ReplyController : ApiController
     {
         private ReplyService CreateReplyService()

@@ -79,7 +79,7 @@ namespace BlazorBlog.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var postEntity = ctx.Replies.Single(p => p.Id == id && p.ApplicationUserId == _userId.ToString());
+                var postEntity = ctx.Replies.Single(p => p.ReplyId == id && p.ApplicationUserId == _userId.ToString());
                 if (postEntity == null) return null;
 
                 return new ReplyDetail
