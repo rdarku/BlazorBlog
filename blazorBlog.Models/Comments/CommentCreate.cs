@@ -11,5 +11,8 @@ namespace BlazorBlog.Models.Comments
 
         [Required]
         public int Id { get; set; }      //user ID
+
+        [Required]
+        public int PostId { get; set; }
     }
 }
