@@ -35,7 +35,7 @@ namespace BlazorBlog.WebAPI.Controllers
             return Ok();
         }
 
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(Guid id)
         {
             var service = CreateReplyService();
             return Ok(service.GetById(id));
@@ -53,7 +53,7 @@ namespace BlazorBlog.WebAPI.Controllers
             return Ok();
         }
 
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete(Guid id)
         {
             var service = CreateReplyService();
             if (!service.DeleteReply(id))

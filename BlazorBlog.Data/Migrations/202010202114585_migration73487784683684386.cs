@@ -3,7 +3,7 @@ namespace BlazorBlog.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class migration73487784683684386 : DbMigration
     {
         public override void Up()
         {
@@ -17,17 +17,17 @@ namespace BlazorBlog.Data.Migrations
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
                         ApplicationUserId = c.String(maxLength: 128),
                         PostId = c.Int(nullable: false),
-                        ReplyId = c.Int(),
+                        ReplyId = c.Guid(),
+                        CommentId = c.Int(),
                         Discriminator = c.String(nullable: false, maxLength: 128),
-                        ReplyComment_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUserId)
                 .ForeignKey("dbo.Post", t => t.PostId, cascadeDelete: true)
-                .ForeignKey("dbo.Comment", t => t.ReplyComment_Id)
+                .ForeignKey("dbo.Comment", t => t.CommentId)
                 .Index(t => t.ApplicationUserId)
                 .Index(t => t.PostId)
-                .Index(t => t.ReplyComment_Id);
+                .Index(t => t.CommentId);
             
             CreateTable(
                 "dbo.ApplicationUser",
@@ -138,7 +138,7 @@ namespace BlazorBlog.Data.Migrations
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
             DropForeignKey("dbo.Like", "ApplicationUserId", "dbo.ApplicationUser");
             DropForeignKey("dbo.Like", "PostId", "dbo.Post");
-            DropForeignKey("dbo.Comment", "ReplyComment_Id", "dbo.Comment");
+            DropForeignKey("dbo.Comment", "CommentId", "dbo.Comment");
             DropForeignKey("dbo.Comment", "PostId", "dbo.Post");
             DropForeignKey("dbo.Post", "ApplicationUserId", "dbo.ApplicationUser");
             DropForeignKey("dbo.Comment", "ApplicationUserId", "dbo.ApplicationUser");
@@ -152,7 +152,7 @@ namespace BlazorBlog.Data.Migrations
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
-            DropIndex("dbo.Comment", new[] { "ReplyComment_Id" });
+            DropIndex("dbo.Comment", new[] { "CommentId" });
             DropIndex("dbo.Comment", new[] { "PostId" });
             DropIndex("dbo.Comment", new[] { "ApplicationUserId" });
             DropTable("dbo.IdentityRole");

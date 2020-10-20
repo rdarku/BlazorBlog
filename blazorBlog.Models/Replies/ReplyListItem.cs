@@ -5,7 +5,7 @@ namespace BlazorBlog.Models.Replies
 {
     public class ReplyListItem
     {
-        public int ReplyId { get; set; }
+        public Guid ReplyId { get; set; }
         public int PostId { get; set; }
         public int CommentId { get; set; }
 

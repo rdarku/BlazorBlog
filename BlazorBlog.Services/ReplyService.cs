@@ -17,13 +17,14 @@ namespace BlazorBlog.Services
 
         public bool CreateReply(ReplyCreate model)
         {
-            var replyEntity = new Reply   
+            var replyEntity = new Reply
             {
                 Text = model.Text,
                 PostId = model.PostID,
                 CommentId = model.CommentId,
                 ApplicationUserId = _userId.ToString(),
-                CreatedUtc = DateTimeOffset.Now
+                CreatedUtc = DateTimeOffset.Now,
+                ReplyId = Guid.NewGuid()
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -47,7 +48,7 @@ namespace BlazorBlog.Services
             }
         }
 
-        public bool DeleteReply(int id)
+        public bool DeleteReply(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -67,7 +68,7 @@ namespace BlazorBlog.Services
                 return ctx.Replies.Where(p => p.ApplicationUserId == _userId.ToString())
                     .Select(p => new ReplyListItem
                     {
-                        ReplyId = p.Id,
+                        ReplyId = p.ReplyId,
                         PostId = p.PostId,
                         CommentId = p.CommentId,
                         CreatedUtc = p.CreatedUtc
@@ -75,22 +76,22 @@ namespace BlazorBlog.Services
             }
         }
 
-        public ReplyDetail GetById(int id)
+        public ReplyDetail GetById(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var postEntity = ctx.Replies.Single(p => p.ReplyId == id && p.ApplicationUserId == _userId.ToString());
-                if (postEntity == null) return null;
+                var replyEntity = ctx.Replies.Single(p => p.ReplyId == id && p.ApplicationUserId == _userId.ToString());
+                if (replyEntity == null) return null;
 
                 return new ReplyDetail
                 {
-                    ReplyId = postEntity.ReplyId,
-                    Reply = postEntity.Text,
-                    CommentAuthor = postEntity.Author.UserName,
-                    ReplyAuthor = postEntity.Author.UserName,
-                    PostId = postEntity.PostId,
-                    CreatedUtc = postEntity.CreatedUtc,
-                    CommentId = postEntity.CommentId
+                    ReplyId = replyEntity.ReplyId,
+                    Reply = replyEntity.Text,
+                    CommentAuthor = replyEntity.Author.UserName,
+                    ReplyAuthor = replyEntity.Author.UserName,
+                    PostId = replyEntity.PostId,
+                    CreatedUtc = replyEntity.CreatedUtc,
+                    CommentId = replyEntity.CommentId
                 };
             }
         }
