@@ -1,5 +1,5 @@
 ﻿using BlazorBlog.Data;
-using BlazorBlog.Models.Post;
+using BlazorBlog.Models.Posts;
 using System;
 using System.Collections.Generic;
 using System.Linq;

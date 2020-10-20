@@ -1,4 +1,4 @@
-﻿using BlazorBlog.Models.Post;
+﻿using BlazorBlog.Models.Posts;
 using BlazorBlog.Services;
 using Microsoft.AspNet.Identity;
 using System;

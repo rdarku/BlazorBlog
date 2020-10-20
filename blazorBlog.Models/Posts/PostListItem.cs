@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BlazorBlog.Models.Post
+namespace BlazorBlog.Models.Posts
 {
     public class PostListItem
     {
