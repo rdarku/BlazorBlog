@@ -1,4 +1,4 @@
-﻿using BlazorBlog.Models.Comments;
+﻿using BlazorBlog.Models.Likes;
 using BlazorBlog.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -6,29 +6,29 @@ using System.Web.Http;
 
 namespace BlazorBlog.WebAPI.Controllers
 {
-    public class CommentController : ApiController
+    public class LikeController : ApiController
     {
-        private CommentService CreateCommentService()
+        private LikeService CreateLikeService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            return new CommentService(userId);
+            return new LikeService(userId);
         }
 
         public IHttpActionResult Get()
         {
-            var service = CreateCommentService();
+            var service = CreateLikeService();
             return Ok(service.GetAll());
         }
 
-        public IHttpActionResult Post(CommentCreate model)
+        public IHttpActionResult Post(LikeCreate model)
         {
-            var service = CreateCommentService();
+            var service = CreateLikeService();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            
 
-            if (!service.CreateComment(model))
+
+            if (!service.CreateLike(model))
                 return InternalServerError();
 
             return Ok();
@@ -36,17 +36,18 @@ namespace BlazorBlog.WebAPI.Controllers
 
         public IHttpActionResult Get(int id)
         {
-            var service = CreateCommentService();
+            var service = CreateLikeService();
             return Ok(service.GetById(id));
         }
 
-        public IHttpActionResult Put(CommentEdit comment)
+        // We probably do not want this here
+        public IHttpActionResult Put(LikeEdit comment)
         {
-            var service = CreateCommentService();
+            var service = CreateLikeService();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (!service.UpdateComment(comment))
+            if (!service.UpdateLike(comment))
                 return InternalServerError();
 
             return Ok();
@@ -54,8 +55,8 @@ namespace BlazorBlog.WebAPI.Controllers
 
         public IHttpActionResult Delete(int id)
         {
-            var service = CreateCommentService();
-            if (!service.DeleteComment(id))
+            var service = CreateLikeService();
+            if (!service.DeleteLike(id))
                 return InternalServerError();
 
             return Ok();
