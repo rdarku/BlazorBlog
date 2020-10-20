@@ -11,7 +11,7 @@ namespace BlazorBlog.Data
         public string Title { get; set; }
         public string Text { get; set; }
 
-        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }  //only set to get DateTime.Now
 
         public DateTimeOffset? ModifiedUtc { get; set; }
 
