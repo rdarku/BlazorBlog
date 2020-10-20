@@ -1,5 +1,0 @@
-C:\Users\rdark\source\repos\BlazorBlog\blazorBlog.Models\bin\Debug\blazorBlog.Models.dll
-C:\Users\rdark\source\repos\BlazorBlog\blazorBlog.Models\bin\Debug\blazorBlog.Models.pdb
-C:\Users\rdark\source\repos\BlazorBlog\blazorBlog.Models\obj\Debug\blazorBlog.Models.csproj.CoreCompileInputs.cache
-C:\Users\rdark\source\repos\BlazorBlog\blazorBlog.Models\obj\Debug\blazorBlog.Models.dll
-C:\Users\rdark\source\repos\BlazorBlog\blazorBlog.Models\obj\Debug\blazorBlog.Models.pdb

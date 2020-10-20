@@ -1,15 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BlazorBlog.Models
+namespace BlazorBlog.Models.Posts
 {
-    public class CreateComments
+    public class PostEdit
     {
+        [Required]
+        public int Id { get; set; }
+
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
-        public string Text { get; set; }  //Comment Texts from user
-        
+        public string Text { get; set; }
+
         [Required]
-        public int Id { get; set; }      //user ID
+        [MaxLength(50)]
+        public string Title { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace blazorBlog.Models
+namespace BlazorBlog.Models
 {
     public class CreatePostModel
     {

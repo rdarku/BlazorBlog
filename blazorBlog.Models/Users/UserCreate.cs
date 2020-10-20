@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BlazorBlog.Models
+namespace BlazorBlog.Models.Users
 {
-    public class CreateUser
+    public class UserCreate
     {
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]

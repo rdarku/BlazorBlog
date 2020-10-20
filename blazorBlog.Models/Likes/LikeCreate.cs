@@ -1,9 +1,9 @@
 ﻿using BlazorBlog.Data;
 using System.ComponentModel.DataAnnotations;
 
-namespace BlazorBlog.Models
+namespace BlazorBlog.Models.Likes
 {
-    public class CreateLike
+    public class LikeCreate
     {
         [Required]
         [Display(Name = "Liked")]
@@ -14,4 +14,3 @@ namespace BlazorBlog.Models
         public User Liker { get; set; }      //user that is liking the post
     }
 }
-
