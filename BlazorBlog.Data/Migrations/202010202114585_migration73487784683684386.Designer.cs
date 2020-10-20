@@ -7,13 +7,13 @@ namespace BlazorBlog.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class ReplyMigration : IMigrationMetadata
+    public sealed partial class migration73487784683684386 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ReplyMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(migration73487784683684386));
         
         string IMigrationMetadata.Id
         {
-            get { return "202010201924133_ReplyMigration"; }
+            get { return "202010202114585_migration73487784683684386"; }
         }
         
         string IMigrationMetadata.Source

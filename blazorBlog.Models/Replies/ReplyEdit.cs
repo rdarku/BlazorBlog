@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace BlazorBlog.Models.Replies
 {
     public class ReplyEdit
     {
         [Required]
-        public int ReplyId { get; set; }
+        public Guid ReplyId { get; set; }
 
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
