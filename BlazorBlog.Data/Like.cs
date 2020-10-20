@@ -8,9 +8,9 @@ namespace BlazorBlog.Data
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey(nameof(LikedPost))]
         public int PostId { get; set; }
 
+        [ForeignKey(nameof(PostId))]
         public virtual Post LikedPost { get; set; }
 
         public string ApplicationUserId { get; set; }
