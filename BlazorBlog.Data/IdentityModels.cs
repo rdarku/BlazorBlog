@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 namespace BlazorBlog.Data
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class User : IdentityUser
+    public class ApplicationUser : IdentityUser
     {
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager, string authenticationType)
+        public string Name { get; set; }
+
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
@@ -20,7 +22,7 @@ namespace BlazorBlog.Data
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<User>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -29,7 +31,6 @@ namespace BlazorBlog.Data
 
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
-        //public DbSet<User> Users { get; set; }
         public DbSet<Like> Likes { get; set; }
         public DbSet<Reply> Replies { get; set; }
 

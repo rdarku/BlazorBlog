@@ -28,7 +28,7 @@ namespace BlazorBlog.WebAPI.Providers
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
-            User user = await userManager.FindAsync(context.UserName, context.Password);
+            ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
 
             if (user == null)
             {
