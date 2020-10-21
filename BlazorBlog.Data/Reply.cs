@@ -7,7 +7,6 @@ namespace BlazorBlog.Data
     public class Reply : Comment
     {
         [Key]
-        [Required]
         public Guid ReplyId { get; set; }
 
         public int CommentId { get; set; }
